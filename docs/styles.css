@@ -301,6 +301,16 @@ body.lang-en .lang-es {
   animation: fadeInUp 1.5s ease 1.8s forwards;
 }
 
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: fadeInUp 1.5s ease 2.3s forwards;
+}
+
 .hero-cta {
   display: inline-flex;
   align-items: center;
@@ -314,8 +324,6 @@ body.lang-en .lang-es {
   letter-spacing: 0.25em;
   text-transform: uppercase;
   cursor: pointer;
-  opacity: 0;
-  animation: fadeInUp 1.5s ease 2.3s forwards;
   transition: all var(--transition);
   text-decoration: none;
 }
