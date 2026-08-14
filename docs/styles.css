@@ -736,7 +736,7 @@ body.lang-en .lang-es {
   margin-bottom: 1.5rem;
   overflow: hidden;
   border-radius: 2px;
-  border: 1px solid var(--border-glass);
+  /* border: 1px solid var(--border-glass); */
 }
 
 .character-image-wrap img {
