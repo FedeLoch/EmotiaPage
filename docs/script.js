@@ -15,17 +15,16 @@ document.addEventListener('DOMContentLoaded', () => {
 function initLanguageToggle() {
   const btn = document.getElementById('lang-toggle');
   if (!btn) return;
-  
+
+  const langs = ['es', 'en', 'fr'];
+
   btn.addEventListener('click', () => {
-    if (document.body.classList.contains('lang-es')) {
-      document.body.classList.remove('lang-es');
-      document.body.classList.add('lang-en');
-      document.documentElement.lang = 'en';
-    } else {
-      document.body.classList.remove('lang-en');
-      document.body.classList.add('lang-es');
-      document.documentElement.lang = 'es';
-    }
+    const current = langs.find(l => document.body.classList.contains(`lang-${l}`)) || 'es';
+    const next = langs[(langs.indexOf(current) + 1) % langs.length];
+
+    document.body.classList.remove('lang-es', 'lang-en', 'lang-fr');
+    document.body.classList.add(`lang-${next}`);
+    document.documentElement.lang = next;
   });
 }
 

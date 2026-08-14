@@ -203,11 +203,18 @@ a:hover {
 }
 
 /* --- Language Visibility Logic --- */
-body.lang-es .lang-en {
+body.lang-es .lang-en,
+body.lang-es .lang-fr {
   display: none;
 }
 
-body.lang-en .lang-es {
+body.lang-en .lang-es,
+body.lang-en .lang-fr {
+  display: none;
+}
+
+body.lang-fr .lang-es,
+body.lang-fr .lang-en {
   display: none;
 }
 
