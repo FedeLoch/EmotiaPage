@@ -13,6 +13,19 @@
     gtag('config', "__GA_MEASUREMENT_ID__");
   </script>
 
+  <!-- Script de eventos: va después -->
+  <script>
+    document.addEventListener("click", function (event) {
+      const element = event.target.closest("[data-analytics-event]");
+      if (!element) return;
+
+      gtag("event", element.dataset.analyticsEvent, {
+        button_label: element.dataset.analyticsLabel,
+        page_location: window.location.href
+      });
+    });
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Emotia — Un mundo de fantasía épica sobre las emociones humanas</title>
@@ -91,7 +104,8 @@
           émergent pour restaurer l'empathie.</span>
       </p>
       <div class="hero-actions">
-        <a href="#mundo" class="hero-cta">
+        <a href="#mundo" class="hero-cta" data-analytics-event="discover-the-world_click"
+          data-analytics-label="main-section">
           <span class="lang-es">Descubrir el mundo</span>
           <span class="lang-en">Discover the world</span>
           <span class="lang-fr">Découvrir le monde</span>
@@ -100,7 +114,8 @@
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
         </a>
-        <a href="#apoyar" class="hero-cta hero-cta-secondary">
+        <a href="#apoyar" class="hero-cta hero-cta-secondary" data-analytics-event="support-us_click"
+          data-analytics-label="main-section">
           <span class="lang-es">¡Apóyanos!</span>
           <span class="lang-en">Support us!</span>
           <span class="lang-fr">Soutenez-nous !</span>
@@ -744,7 +759,8 @@
       </div>
 
       <div class="reveal reveal-delay-1">
-        <a href="#" class="cta-btn" id="kickstarter-btn">
+        <a href="" class="cta-btn" id="kickstarter-btn" data-analytics-event="kickstarter_click"
+          data-analytics-label="seccion_final" target="_blank">
           <span class="lang-es">Apoyanos en Kickstarter</span>
           <span class="lang-en">Support us on Kickstarter</span>
           <span class="lang-fr">Soutenez-nous sur Kickstarter</span>
