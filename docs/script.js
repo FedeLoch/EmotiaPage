@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
   initHeroLetters();
   initLanguageToggle();
+  initThemeToggle();
   initKickstarter();
   initReading();
 });
@@ -38,6 +39,49 @@ function initLanguageToggle() {
   btn.addEventListener('click', () => {
     const current = langs.find(l => document.body.classList.contains(`lang-${l}`)) || 'es';
     setLang(langs[(langs.indexOf(current) + 1) % langs.length]);
+  });
+}
+
+/* --- Theme Toggle --- */
+// The <head> script already set data-theme before paint; this keeps it in sync.
+const THEME_COLORS = { dark: '#06060e', light: '#ffffff' };
+
+function currentTheme() {
+  return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+}
+
+function initThemeToggle() {
+  const root = document.documentElement;
+  const btn = document.getElementById('theme-toggle');
+  const meta = document.querySelector('meta[name="theme-color"]');
+
+  // Instant switch: the gradient overlays can't be animated, so a fade would flash.
+  function apply(theme) {
+    root.setAttribute('data-theme', theme);
+    if (meta) meta.setAttribute('content', THEME_COLORS[theme]);
+    if (btn) btn.setAttribute('aria-pressed', theme === 'light' ? 'true' : 'false');
+  }
+
+  apply(currentTheme());
+
+  // Follow the system setting until the reader picks a theme.
+  let saved = null;
+  try { saved = localStorage.getItem('emotia-theme'); } catch (e) { /* storage unavailable */ }
+  if (!saved && window.matchMedia) {
+    const mq = window.matchMedia('(prefers-color-scheme: light)');
+    const onChange = (e) => {
+      let chosen = null;
+      try { chosen = localStorage.getItem('emotia-theme'); } catch (err) { /* storage unavailable */ }
+      if (!chosen) apply(e.matches ? 'light' : 'dark');
+    };
+    if (mq.addEventListener) mq.addEventListener('change', onChange);
+  }
+
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    const next = currentTheme() === 'light' ? 'dark' : 'light';
+    apply(next);
+    try { localStorage.setItem('emotia-theme', next); } catch (e) { /* storage unavailable */ }
   });
 }
 
@@ -102,15 +146,23 @@ function initParticles() {
       this.pulse = Math.random() * Math.PI * 2;
       this.pulseSpeed = Math.random() * 0.02 + 0.005;
       
-      // Gold flame plus the four threads of the book's emblem
-      const colors = [
-        { r: 201, g: 168, b: 76 },  // gold (the lamp)
-        { r: 201, g: 168, b: 76 },
-        { r: 86, g: 146, b: 224 },  // blue thread
-        { r: 206, g: 74, b: 70 },   // red thread
-        { r: 92, g: 176, b: 120 },  // green thread
-        { r: 236, g: 234, b: 226 }, // white thread
-      ];
+      // Dark: gold flame plus the four threads of the book's emblem.
+      // Light: only golds, like the book's interior (gold, golddim, goldlight).
+      const colors = currentTheme() === 'light'
+        ? [
+            { r: 201, g: 168, b: 76 },  // gold
+            { r: 201, g: 168, b: 76 },
+            { r: 138, g: 114, b: 51 },  // golddim
+            { r: 232, g: 210, b: 138 }, // goldlight
+          ]
+        : [
+            { r: 201, g: 168, b: 76 },  // gold (the lamp)
+            { r: 201, g: 168, b: 76 },
+            { r: 86, g: 146, b: 224 },  // blue thread
+            { r: 206, g: 74, b: 70 },   // red thread
+            { r: 92, g: 176, b: 120 },  // green thread
+            { r: 236, g: 234, b: 226 }, // white thread
+          ];
       this.color = colors[Math.floor(Math.random() * colors.length)];
     }
     

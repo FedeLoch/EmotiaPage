@@ -43,6 +43,17 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="images/og-image.jpg">
   <meta name="theme-color" content="#06060e">
+  <script>
+    // Tema antes del primer pintado: elección guardada, o la del sistema.
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('emotia-theme'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') {
+        t = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
   <link rel="icon" type="image/svg+xml" href="images/emblem.svg">
   <link rel="icon" type="image/png" href="images/emotia_favicon-withoutbackground.png">
   <link rel="preload" as="image" href="images/hero_bg.webp" type="image/webp">
@@ -76,6 +87,10 @@
     </ul>
 
     <div class="nav-controls">
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Modo claro u oscuro / Light or dark mode / Mode clair ou sombre">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      </button>
       <button id="lang-toggle" class="lang-toggle" aria-label="Cambiar idioma / Change language / Changer de langue">
         <span class="lang-es">EN</span>
         <span class="lang-en">FR</span>
@@ -611,7 +626,7 @@
           <span class="lang-en">The Prophecy</span>
           <span class="lang-fr">La Prophétie</span>
         </h2>
-        <img class="emblem-divider" src="images/emblem.svg" alt="" width="44" height="44">
+        <svg class="emblem-divider" viewBox="-1.2 -1.2 2.4 2.4" width="44" height="44" aria-hidden="true"><g fill="none" stroke-width="0.07" stroke-linecap="round"><path d="M -0.545 -0.839 A 1 1 0 0 1 0.545 -0.839" style="stroke:var(--emblem-white)"/><path d="M 0.839 -0.545 A 1 1 0 0 1 0.839 0.545" style="stroke:var(--emblem-red)"/><path d="M 0.545 0.839 A 1 1 0 0 1 -0.545 0.839" style="stroke:var(--emblem-green)"/><path d="M -0.839 0.545 A 1 1 0 0 1 -0.839 -0.545" style="stroke:var(--emblem-blue)"/></g><g style="fill:var(--gold)"><circle cx="0.707" cy="-0.707" r="0.045"/><circle cx="0.707" cy="0.707" r="0.045"/><circle cx="-0.707" cy="0.707" r="0.045"/><circle cx="-0.707" cy="-0.707" r="0.045"/></g><path style="fill:var(--flame)" d="M 0 0.42 C 0.30 0.26 0.22 -0.14 0 -0.52 C -0.22 -0.14 -0.30 0.26 0 0.42 Z"/></svg>
       </div>
 
       <article class="reading-text reveal reveal-delay-1" id="reading-text">
@@ -927,7 +942,7 @@
        FOOTER
        ============================================ -->
   <footer class="footer">
-    <img class="footer-emblem" src="images/emblem.svg" alt="" width="36" height="36">
+    <svg class="footer-emblem" viewBox="-1.2 -1.2 2.4 2.4" width="36" height="36" aria-hidden="true"><g fill="none" stroke-width="0.07" stroke-linecap="round"><path d="M -0.545 -0.839 A 1 1 0 0 1 0.545 -0.839" style="stroke:var(--emblem-white)"/><path d="M 0.839 -0.545 A 1 1 0 0 1 0.839 0.545" style="stroke:var(--emblem-red)"/><path d="M 0.545 0.839 A 1 1 0 0 1 -0.545 0.839" style="stroke:var(--emblem-green)"/><path d="M -0.839 0.545 A 1 1 0 0 1 -0.839 -0.545" style="stroke:var(--emblem-blue)"/></g><g style="fill:var(--gold)"><circle cx="0.707" cy="-0.707" r="0.045"/><circle cx="0.707" cy="0.707" r="0.045"/><circle cx="-0.707" cy="0.707" r="0.045"/><circle cx="-0.707" cy="-0.707" r="0.045"/></g><path style="fill:var(--flame)" d="M 0 0.42 C 0.30 0.26 0.22 -0.14 0 -0.52 C -0.22 -0.14 -0.30 0.26 0 0.42 Z"/></svg>
     <div class="footer-brand">EMOTIA</div>
     <p class="footer-tagline">
       <span class="lang-es">Escrito con empatía</span>
