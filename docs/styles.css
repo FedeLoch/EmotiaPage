@@ -24,6 +24,12 @@
   --red-muted: #a85454;
   --green-sage: #5a8a6a;
 
+  /* Los cuatro hilos del emblema del libro */
+  --thread-blue: #5692e0;
+  --thread-red: #ce4a46;
+  --thread-green: #5cb078;
+  --thread-white: #eceae2;
+
   --text-primary: #e8e6e2;
   --text-secondary: #9a9898;
   --text-dim: #5a5858;
@@ -273,7 +279,7 @@ body.lang-fr .lang-en {
   color: var(--text-secondary);
   margin-bottom: 2rem;
   opacity: 0;
-  animation: fadeInUp 1.5s ease 0.3s forwards;
+  animation: fadeInUp 1s ease 0.1s forwards;
   font-weight: 300;
 }
 
@@ -285,7 +291,7 @@ body.lang-fr .lang-en {
   color: var(--text-primary);
   margin-bottom: 1.5rem;
   opacity: 0;
-  animation: fadeInTitle 2s ease 0.8s forwards;
+  animation: fadeInTitle 1.4s ease 0.25s forwards;
   text-shadow: 0 0 60px rgba(201, 168, 76, 0.15);
   position: relative;
 }
@@ -305,17 +311,17 @@ body.lang-fr .lang-en {
   margin: 0 auto 3rem;
   line-height: 1.8;
   opacity: 0;
-  animation: fadeInUp 1.5s ease 1.8s forwards;
+  animation: fadeInUp 1s ease 0.7s forwards;
 }
 
 .hero-actions {
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
   justify-content: center;
   align-items: center;
   opacity: 0;
-  animation: fadeInUp 1.5s ease 2.3s forwards;
+  animation: fadeInUp 1s ease 0.95s forwards;
 }
 
 .hero-cta {
@@ -358,7 +364,7 @@ body.lang-fr .lang-en {
   width: 100%;
   z-index: 2;
   opacity: 0;
-  animation: fadeInUp 1.5s ease 3s forwards;
+  animation: fadeInUp 1s ease 1.3s forwards;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -430,6 +436,14 @@ body.lang-fr .lang-en {
   height: 1px;
   background: linear-gradient(to right, var(--gold), transparent);
   margin: 2rem 0;
+}
+
+.emblem-divider {
+  display: block;
+  width: 44px;
+  height: 44px;
+  margin: 1.5rem auto 2rem;
+  opacity: 0.9;
 }
 
 /* --- Reveal Animations --- */
@@ -617,10 +631,30 @@ body.lang-fr .lang-en {
   transition: all 0.6s ease;
 }
 
-.emotion-card:hover .emotion-description {
+.emotion-card:hover .emotion-description,
+.emotion-card:focus-within .emotion-description,
+.emotion-card:focus .emotion-description {
   opacity: 1;
-  max-height: 200px;
+  max-height: 260px;
   margin-top: 1rem;
+}
+
+.emotion-card:focus-visible {
+  outline: 1px solid var(--gold);
+  outline-offset: 4px;
+}
+
+/* En pantallas táctiles no hay hover: las descripciones se muestran siempre */
+@media (hover: none) {
+  .emotion-description {
+    opacity: 1;
+    max-height: none;
+    margin-top: 1rem;
+  }
+
+  .emotion-card::before {
+    opacity: 1;
+  }
 }
 
 .emotion-card[data-emotion="amistad"] {
@@ -725,9 +759,29 @@ body.lang-fr .lang-en {
 
 .characters-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
   margin-top: 3rem;
+}
+
+.character-virtue {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+}
+
+/* Alisa no tiene cuerpo: se ve la piedra a través de ella */
+.character-card--spirit .character-image-wrap img {
+  opacity: 0.55;
+  filter: saturate(0.5) brightness(0.9) drop-shadow(0 0 18px rgba(236, 234, 226, 0.35));
+}
+
+.character-card--spirit:hover .character-image-wrap img {
+  opacity: 0.75;
+  filter: saturate(0.7) brightness(1) drop-shadow(0 0 24px rgba(236, 234, 226, 0.45));
 }
 
 .character-card {
@@ -970,11 +1024,43 @@ body.lang-fr .lang-en {
   color: var(--bg-deep);
 }
 
+.cta-btn .label-soon {
+  display: none;
+}
+
+.cta-btn.is-soon {
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold-dim);
+  cursor: default;
+}
+
+.cta-btn.is-soon:hover {
+  box-shadow: none;
+  transform: none;
+  background: transparent;
+  color: var(--gold);
+}
+
+.cta-btn.is-soon .label-live {
+  display: none;
+}
+
+.cta-btn.is-soon .label-soon {
+  display: inline;
+}
+
 /* --- Footer --- */
 .footer {
   padding: 3rem 2rem;
   text-align: center;
   border-top: 1px solid var(--border-glass);
+}
+
+.footer-emblem {
+  display: block;
+  margin: 0 auto 1rem;
+  opacity: 0.8;
 }
 
 .footer-brand {
@@ -1013,6 +1099,92 @@ body.lang-fr .lang-en {
 .footer-copy {
   font-size: 0.7rem;
   color: var(--text-dim);
+}
+
+/* --- Reading: La profecía --- */
+.reading-section {
+  background: var(--bg-primary);
+}
+
+.reading-inner {
+  max-width: 680px;
+  position: relative;
+}
+
+.reading-note {
+  font-family: var(--font-literary);
+  font-style: italic;
+  color: var(--text-dim);
+  margin-bottom: 2rem;
+}
+
+.reading-text {
+  font-family: var(--font-literary);
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  line-height: 1.85;
+  color: var(--text-primary);
+  max-height: 22rem;
+  overflow: hidden;
+  transition: max-height 1.2s ease;
+}
+
+.reading-text.open {
+  max-height: none;
+}
+
+.reading-text p {
+  margin-bottom: 1.1em;
+  text-indent: 1.4em;
+}
+
+.reading-lang > p:first-child {
+  text-indent: 0;
+}
+
+.reading-lang > p:first-child::first-letter {
+  font-family: var(--font-display);
+  font-size: 3.2em;
+  float: left;
+  line-height: 0.9;
+  margin: 0.08em 0.12em 0 0;
+  color: var(--gold);
+}
+
+.prophecy-verse {
+  margin: 2.5rem 0;
+  padding: 1.5rem 0 1.5rem 1.8rem;
+  border-left: 1px solid var(--gold-dim);
+  font-style: italic;
+  color: var(--gold-light);
+}
+
+.prophecy-verse p {
+  text-indent: 0;
+}
+
+.reading-fade {
+  position: relative;
+  height: 6rem;
+  margin-top: -6rem;
+  background: linear-gradient(to bottom, transparent, var(--bg-primary));
+  pointer-events: none;
+}
+
+.reading-fade.hidden {
+  display: none;
+}
+
+.reading-actions {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.chapters-list .chapter-more {
+  opacity: 0.6;
+}
+
+.chapters-list .chapter-more::after {
+  display: none;
 }
 
 /* --- Particles Canvas --- */
@@ -1088,12 +1260,14 @@ body.lang-fr .lang-en {
 }
 
 /* --- Responsive --- */
+@media (max-width: 1100px) {
+  .characters-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media (max-width: 1024px) {
   .emotions-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .characters-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -1103,7 +1277,7 @@ body.lang-fr .lang-en {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 960px) {
   .nav-links {
     display: none;
     position: fixed;
@@ -1145,6 +1319,9 @@ body.lang-fr .lang-en {
     transform: rotate(-45deg) translate(5px, -5px);
   }
 
+}
+
+@media (max-width: 768px) {
   .emotions-grid {
     grid-template-columns: 1fr;
   }
@@ -1181,5 +1358,32 @@ body.lang-fr .lang-en {
   .cta-btn {
     padding: 1rem 2rem;
     font-size: 0.8rem;
+  }
+}
+
+@media (max-height: 820px) {
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+/* --- Reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  #particles-canvas {
+    display: none;
   }
 }

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-1.2 -1.2 2.4 2.4" role="img" aria-label="Emotia">
+  <!-- El emblema del libro: la llama de la lámpara de la abuela (La profecía)
+       y los cuatro hilos del sueño de Dane (Trotamundos), que no se tocan. -->
+  <g fill="none" stroke-width="0.07" stroke-linecap="round">
+    <path d="M -0.545 -0.839 A 1 1 0 0 1 0.545 -0.839" stroke="#eceae2"/>
+    <path d="M 0.839 -0.545 A 1 1 0 0 1 0.839 0.545" stroke="#ce4a46"/>
+    <path d="M 0.545 0.839 A 1 1 0 0 1 -0.545 0.839" stroke="#5cb078"/>
+    <path d="M -0.839 0.545 A 1 1 0 0 1 -0.839 -0.545" stroke="#5692e0"/>
+  </g>
+  <g fill="#c9a84c">
+    <circle cx="0.707" cy="-0.707" r="0.045"/>
+    <circle cx="0.707" cy="0.707" r="0.045"/>
+    <circle cx="-0.707" cy="0.707" r="0.045"/>
+    <circle cx="-0.707" cy="-0.707" r="0.045"/>
+  </g>
+  <path fill="#e8d28a" d="M 0 0.42 C 0.30 0.26 0.22 -0.14 0 -0.52 C -0.22 -0.14 -0.30 0.26 0 0.42 Z"/>
+</svg>

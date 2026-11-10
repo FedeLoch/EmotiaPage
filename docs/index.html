@@ -30,13 +30,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Emotia — Un mundo de fantasía épica sobre las emociones humanas</title>
   <meta name="description"
-    content="Emotia es un mundo de fantasía épica donde las emociones han desaparecido. Cuatro almas destinadas emergen para restaurar la empatía. Descubre el primer libro de la trilogía.">
-  <meta name="keywords" content="Emotia, fantasía épica, emociones, libro, trilogía, Federico Lochbaum, Kickstarter">
+    content="Emotia es una fantasía épica sobre las emociones que olvidamos sentir. Hace mil años la empatía se perdió; cuatro guardianes, por caminos separados, aprenderán a recuperarla. Primer libro de una trilogía.">
+  <meta name="keywords" content="Emotia, fantasía épica, emociones, empatía, libro, trilogía, Federico Lochbaum">
   <meta property="og:title" content="Emotia — Un mundo que olvidó cómo sentir">
   <meta property="og:description"
-    content="En un mundo donde las emociones desaparecieron, cuatro almas destinadas emergen para restaurar la empatía. Descubre el primer libro de la trilogía.">
+    content="Hace mil años la empatía se perdió en todo el mundo. Por caminos separados llegarán cuatro guardianes. Primer libro de la trilogía.">
   <meta property="og:type" content="website">
-  <link rel="icon" type="image/jpeg" href="images/emotia_favicon-withoutbackground.png">
+  <meta property="og:image" content="images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="images/og-image.jpg">
+  <meta name="theme-color" content="#06060e">
+  <link rel="icon" type="image/svg+xml" href="images/emblem.svg">
+  <link rel="icon" type="image/png" href="images/emotia_favicon-withoutbackground.png">
+  <link rel="preload" as="image" href="images/hero_bg.webp" type="image/webp">
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -56,6 +65,8 @@
             class="lang-fr">Les Royaumes</span></a></li>
       <li><a href="#personajes"><span class="lang-es">Personajes</span><span class="lang-en">Characters</span><span
             class="lang-fr">Personnages</span></a></li>
+      <li><a href="#leer"><span class="lang-es">Leer</span><span class="lang-en">Read</span><span
+            class="lang-fr">Lire</span></a></li>
       <li><a href="#libro"><span class="lang-es">El Libro</span><span class="lang-en">The Book</span><span
             class="lang-fr">Le Livre</span></a></li>
       <li><a href="#autor"><span class="lang-es">El Autor</span><span class="lang-en">Author</span><span
@@ -65,7 +76,7 @@
     </ul>
 
     <div class="nav-controls">
-      <button id="lang-toggle" class="lang-toggle" aria-label="Toggle language">
+      <button id="lang-toggle" class="lang-toggle" aria-label="Cambiar idioma / Change language / Changer de langue">
         <span class="lang-es">EN</span>
         <span class="lang-en">FR</span>
         <span class="lang-fr">ES</span>
@@ -83,25 +94,27 @@
        ============================================ -->
   <section class="hero" id="hero">
     <div class="hero-bg">
-      <img src="images/hero_bg.jpg" alt="Paisaje de Emotia / Emotia landscape" loading="eager">
+      <picture>
+        <source srcset="images/hero_bg.webp" type="image/webp">
+        <img src="images/hero_bg.jpg" alt="" loading="eager" fetchpriority="high">
+      </picture>
     </div>
     <canvas id="particles-canvas" class="hero-particles"></canvas>
 
     <div class="hero-content">
       <p class="hero-prophecy">
-        <span class="lang-es">«Cuando ya no haya más esperanza...»</span>
-        <span class="lang-en">"When there is no more hope left..."</span>
-        <span class="lang-fr">«Quand il n'y aura plus d'espoir...»</span>
+        <span class="lang-es">«Por caminos separados llegarán cuatro guardianes…»</span>
+        <span class="lang-en">"By separate roads, four guardians will come…"</span>
+        <span class="lang-fr">«Par des chemins séparés viendront quatre gardiens…»</span>
       </p>
       <h1 class="hero-title">EMOTIA</h1>
       <p class="hero-subtitle">
-        <span class="lang-es">Un mundo de fantasía épica donde las emociones han desaparecido.<br>Cuatro almas
-          destinadas
-          emergen para restaurar la empatía.</span>
-        <span class="lang-en">An epic fantasy world where emotions have vanished.<br>Four destined souls emerge to
-          restore empathy.</span>
-        <span class="lang-fr">Un monde de fantasy épique où les émotions ont disparu.<br>Quatre âmes destinées
-          émergent pour restaurer l'empathie.</span>
+        <span class="lang-es">Una fantasía épica sobre las emociones que olvidamos sentir.<br>Hace mil años, la
+          empatía se perdió en todo el mundo.</span>
+        <span class="lang-en">An epic fantasy about the emotions we forgot how to feel.<br>A thousand years ago,
+          empathy was lost all over the world.</span>
+        <span class="lang-fr">Une fantasy épique sur les émotions que nous avons oublié de ressentir.<br>Il y a mille
+          ans, l'empathie s'est perdue dans le monde entier.</span>
       </p>
       <div class="hero-actions">
         <a href="#mundo" class="hero-cta" data-analytics-event="discover-the-world_click"
@@ -114,16 +127,15 @@
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
         </a>
-        <a href="#apoyar" class="hero-cta hero-cta-secondary" data-analytics-event="support-us_click"
+        <a href="#leer" class="hero-cta hero-cta-secondary" data-analytics-event="read-prophecy_click"
           data-analytics-label="main-section">
-          <span class="lang-es">¡Apóyanos!</span>
-          <span class="lang-en">Support us!</span>
-          <span class="lang-fr">Soutenez-nous !</span>
+          <span class="lang-es">Leer el comienzo</span>
+          <span class="lang-en">Read the opening</span>
+          <span class="lang-fr">Lire le début</span>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path
-              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-            </path>
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z" />
+            <path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z" />
           </svg>
         </a>
       </div>
@@ -142,7 +154,10 @@
        ============================================ -->
   <section class="section world-section" id="mundo">
     <div class="world-bg">
-      <img src="images/world_bg.jpg" alt="Los reinos de Emotia" loading="lazy">
+      <picture>
+        <source srcset="images/world_bg.webp" type="image/webp">
+        <img src="images/world_bg.jpg" alt="" loading="lazy">
+      </picture>
     </div>
     <div class="section-inner world-content">
       <div class="reveal">
@@ -161,79 +176,74 @@
 
       <div class="world-text reveal reveal-delay-1">
         <p class="lang-es">
-          Hace milenios, cuando el mundo aún estaba en armonía, existían cuatro poderosas
-          entidades que personificaban las emociones más profundas de la humanidad. Juntas,
-          creaban algo que hoy parece un mito: <em>Empatía</em>.
+          Hace mucho tiempo, cuando los caminos unían pueblos que hablaban lenguas distintas, cuatro dioses
+          acompañaban a las personas: Amistad, Valentía, Paz y Sabiduría. Allí donde esas fuerzas se encontraban
+          nacía algo que hoy parece un mito: <em>la Empatía</em>.
         </p>
         <p class="lang-en">
-          Millennia ago, when the world was still in harmony, there were four powerful
-          entities embodying humanity's deepest emotions. Together, they created
-          something that today seems like a myth: <em>Empathy</em>.
+          Long ago, when roads joined peoples who spoke different tongues, four gods walked beside them:
+          Friendship, Courage, Peace and Wisdom. Wherever those forces met, something was born that today
+          seems like a myth: <em>Empathy</em>.
         </p>
         <p class="lang-fr">
-          Il y a des millénaires, lorsque le monde vivait encore en harmonie, existaient
-          quatre puissantes entités qui incarnaient les émotions les plus profondes de
-          l'humanité. Ensemble, elles créaient quelque chose qui semble aujourd'hui un
-          mythe : l'<em>Empathie</em>.
+          Il y a très longtemps, quand les chemins reliaient des peuples qui parlaient des langues différentes,
+          quatre dieux accompagnaient les hommes : l'Amitié, le Courage, la Paix et la Sagesse. Là où ces forces se
+          rencontraient naissait quelque chose qui semble aujourd'hui un mythe : <em>l'Empathie</em>.
         </p>
 
         <p class="lang-es">
-          Pero un día, sin previo aviso, una sombra oscura se cernió sobre la tierra.
-          La codicia y la indiferencia comenzaron a esparcirse, erosionando lentamente
-          los lazos entre las personas. Nadie sabe cómo ni por qué, pero el mundo entero
-          cayó en un mar de aislamiento y hostilidad.
+          Entonces llegó el Olvido. Volvió sospechosa la mano ofrecida y enseñó a guardar bajo llave lo que antes
+          se compartía. Los dioses fueron engañados y su poder se dispersó. Aquel tiempo recibió el nombre de
+          <em>la Caída</em>.
         </p>
         <p class="lang-en">
-          But one day, without warning, a dark shadow fell over the land.
-          Greed and indifference began to spread, slowly eroding the bonds
-          between people. No one knows how or why, but the entire world
-          fell into a sea of isolation and hostility.
+          Then came the Oblivion. It made the offered hand suspicious and taught people to lock away what they once
+          shared. The gods were deceived and their power was scattered. That time became known as <em>the Fall</em>.
         </p>
         <p class="lang-fr">
-          Mais un jour, sans prévenir, une ombre sombre s'abattit sur la terre.
-          La cupidité et l'indifférence commencèrent à se répandre, érodant
-          lentement les liens entre les gens. Nul ne sait comment ni pourquoi,
-          mais le monde entier sombra dans une mer d'isolement et d'hostilité.
+          Puis vint l'Oubli. Il rendit suspecte la main tendue et apprit à garder sous clé ce que l'on partageait
+          autrefois. Les dieux furent trompés et leur pouvoir dispersé. Cette époque reçut le nom de
+          <em>la Chute</em>.
         </p>
 
         <p class="lang-es">
-          Han pasado mil años. Las relaciones son transacciones. La confianza es un lujo.
-          El conocimiento, un monopolio. Y el coraje, un recuerdo lejano.
+          Han pasado mil años. La gente conserva los gestos, pero no lo que alguna vez los llenó.
+          Las relaciones son transacciones. La confianza es un lujo. El conocimiento, un monopolio.
+          Y el coraje, un recuerdo lejano.
         </p>
         <p class="lang-en">
-          A thousand years have passed. Relationships are transactions. Trust is a luxury.
-          Knowledge is a monopoly. And courage is a distant memory.
+          A thousand years have passed. People keep the gestures, but not what once filled them.
+          Relationships are transactions. Trust is a luxury. Knowledge is a monopoly.
+          And courage is a distant memory.
         </p>
         <p class="lang-fr">
-          Mille ans ont passé. Les relations sont des transactions. La confiance est un luxe.
-          Le savoir, un monopole. Et le courage, un lointain souvenir.
+          Mille ans ont passé. Les gens conservent les gestes, mais pas ce qui les remplissait autrefois.
+          Les relations sont des transactions. La confiance est un luxe. Le savoir, un monopole.
+          Et le courage, un lointain souvenir.
         </p>
       </div>
 
       <blockquote class="world-quote reveal reveal-delay-2">
-        <span class="lang-es">Cuatro individuos, destinados a convertirse en los nuevos Guardianes de las Emociones,
-          emergerán para restaurar el equilibrio emocional en el mundo.</span>
-        <span class="lang-en">Four individuals, destined to become the new Guardians of Emotions, will emerge to restore
-          emotional balance to the world.</span>
-        <span class="lang-fr">Quatre individus, destinés à devenir les nouveaux Gardiens des Émotions, émergeront pour
-          restaurer l'équilibre émotionnel du monde.</span>
+        <span class="lang-es">Por caminos separados llegarán cuatro guardianes, portadores de lo que el mundo creyó
+          perdido.<br><br>Habrá una puerta abierta donde terminaba el camino.</span>
+        <span class="lang-en">By separate roads four guardians will come, bearers of what the world believed
+          lost.<br><br>There will be an open door where the road came to an end.</span>
+        <span class="lang-fr">Par des chemins séparés viendront quatre gardiens, porteurs de ce que le monde croyait
+          perdu.<br><br>Il y aura une porte ouverte là où finissait le chemin.</span>
       </blockquote>
 
       <div class="world-text reveal reveal-delay-3">
         <p class="lang-es">
-          Pero en los rincones más remotos del mundo, una antigua profecía mantiene la esperanza
-          latente. Habla de cuatro almas que, sin saberlo, llevan dentro la semilla de algo
-          que el mundo creyó perdido para siempre.
+          En Elvarya, cuando la nieve borra los senderos, los mayores todavía repiten esa profecía junto al fuego.
+          La repiten incluso en las casas donde ya nadie sabe cómo se siente la esperanza.
         </p>
         <p class="lang-en">
-          Yet in the most remote corners of the world, an ancient prophecy keeps hope alive.
-          It speaks of four souls who, unknowingly, carry within them the seed of something
-          the world thought lost forever.
+          In Elvarya, when the snow erases the paths, the elders still repeat that prophecy by the fire.
+          They repeat it even in houses where no one remembers what hope feels like.
         </p>
         <p class="lang-fr">
-          Mais dans les recoins les plus reculés du monde, une ancienne prophétie maintient
-          l'espoir en vie. Elle parle de quatre âmes qui, sans le savoir, portent en elles
-          la graine de quelque chose que le monde croyait perdu à jamais.
+          À Elvarya, quand la neige efface les sentiers, les anciens répètent encore cette prophétie près du feu.
+          Ils la répètent même dans les maisons où plus personne ne sait ce que l'on ressent quand on espère.
         </p>
       </div>
     </div>
@@ -267,7 +277,7 @@
       </div>
 
       <div class="emotions-grid">
-        <div class="emotion-card reveal reveal-delay-1" data-emotion="amistad">
+        <div tabindex="0" class="emotion-card reveal reveal-delay-1" data-emotion="amistad">
           <h3 class="emotion-name">
             <span class="lang-es">Amistad</span>
             <span class="lang-en">Friendship</span>
@@ -291,7 +301,7 @@
           </p>
         </div>
 
-        <div class="emotion-card reveal reveal-delay-2" data-emotion="valentía">
+        <div tabindex="0" class="emotion-card reveal reveal-delay-2" data-emotion="valentía">
           <h3 class="emotion-name">
             <span class="lang-es">Valentía</span>
             <span class="lang-en">Courage</span>
@@ -314,7 +324,7 @@
           </p>
         </div>
 
-        <div class="emotion-card reveal reveal-delay-3" data-emotion="paz">
+        <div tabindex="0" class="emotion-card reveal reveal-delay-3" data-emotion="paz">
           <h3 class="emotion-name">
             <span class="lang-es">Paz</span>
             <span class="lang-en">Peace</span>
@@ -337,7 +347,7 @@
           </p>
         </div>
 
-        <div class="emotion-card reveal reveal-delay-4" data-emotion="sabiduría">
+        <div tabindex="0" class="emotion-card reveal reveal-delay-4" data-emotion="sabiduría">
           <h3 class="emotion-name">
             <span class="lang-es">Sabiduría</span>
             <span class="lang-en">Wisdom</span>
@@ -485,17 +495,17 @@
           <span class="lang-fr">Les Protagonistes</span>
         </span>
         <h2 class="section-title">
-          <span class="lang-es">Cuatro destinos entrelazados</span>
-          <span class="lang-en">Four intertwined destinies</span>
-          <span class="lang-fr">Quatre destins entrelacés</span>
+          <span class="lang-es">Destinos entrelazados</span>
+          <span class="lang-en">Intertwined destinies</span>
+          <span class="lang-fr">Destins entrelacés</span>
         </h2>
         <p class="section-subtitle" style="margin: 0 auto;">
-          <span class="lang-es">Sin saberlo, cada uno de ellos lleva dentro la semilla de algo que el mundo creyó
-            perdido.</span>
-          <span class="lang-en">Unknowingly, each of them carries within the seed of something the world thought
-            lost.</span>
-          <span class="lang-fr">Sans le savoir, chacun d'eux porte en lui la graine de quelque chose que le monde
-            croyait perdu.</span>
+          <span class="lang-es">Cuatro guardianes, por caminos separados. Reen y Alisa son hermanos: dos almas
+            distintas que comparten todo lo que saben, pero no lo que sienten.</span>
+          <span class="lang-en">Four guardians, by separate roads. Reen and Alisa are siblings: two different souls
+            who share everything they know, but not what they feel.</span>
+          <span class="lang-fr">Quatre gardiens, par des chemins séparés. Reen et Alisa sont frère et sœur : deux
+            âmes distinctes qui partagent tout ce qu'elles savent, mais pas ce qu'elles ressentent.</span>
         </p>
         <div class="section-divider" style="margin: 2rem auto;"></div>
       </div>
@@ -503,55 +513,179 @@
       <div class="characters-grid">
         <div class="character-card reveal reveal-delay-1">
           <div class="character-image-wrap">
-            <img src="images/amy.png" alt="Amy" loading="lazy" style="width: 80%;">
+            <picture>
+              <source srcset="images/amy.webp" type="image/webp">
+              <img src="images/amy.png" alt="Amy" loading="lazy" width="600" height="800">
+            </picture>
           </div>
           <h3 class="character-name">Amy</h3>
+          <p class="character-virtue"><span class="lang-es">Amistad</span><span class="lang-en">Friendship</span><span class="lang-fr">Amitié</span></p>
           <p class="character-phrase">
-            <span class="lang-es">«¿Cómo se sentiría una amistad verdadera?»</span>
-            <span class="lang-en">"How would a true friendship feel?"</span>
-            <span class="lang-fr">"Comment serait une véritable amitié ?"</span>
+            <span class="lang-es">«¿Cómo se sentirá tener una verdadera amistad?»</span>
+            <span class="lang-en">"What would a true friendship feel like?"</span>
+            <span class="lang-fr">«Que ressent-on dans une véritable amitié ?»</span>
           </p>
           <p class="character-origin">Trincia</p>
         </div>
-
         <div class="character-card reveal reveal-delay-2">
           <div class="character-image-wrap">
-            <img src="images/dane.png" alt="Dane" loading="lazy" style="width: 95%;">
+            <picture>
+              <source srcset="images/dane.webp" type="image/webp">
+              <img src="images/dane.png" alt="Dane" loading="lazy" width="600" height="800">
+            </picture>
           </div>
           <h3 class="character-name">Dane</h3>
+          <p class="character-virtue"><span class="lang-es">Valentía</span><span class="lang-en">Courage</span><span class="lang-fr">Courage</span></p>
           <p class="character-phrase">
-            <span class="lang-es">«El mundo es más grande que estas montañas»</span>
-            <span class="lang-en">"The world is bigger than these mountains"</span>
-            <span class="lang-fr">"Le monde est plus vaste que ces montagnes"</span>
+            <span class="lang-es">«Valentía o desesperación, que comparten muchas características.»</span>
+            <span class="lang-en">"Courage or desperation — they have a lot in common."</span>
+            <span class="lang-fr">«Courage ou désespoir : ils ont beaucoup en commun.»</span>
           </p>
           <p class="character-origin">Elvarya</p>
         </div>
-
         <div class="character-card reveal reveal-delay-3">
           <div class="character-image-wrap">
-            <img src="images/ren.png" alt="Reen" loading="lazy" style="width: 95%;">
+            <picture>
+              <source srcset="images/ren.webp" type="image/webp">
+              <img src="images/ren.png" alt="Reen" loading="lazy" width="600" height="800">
+            </picture>
           </div>
           <h3 class="character-name">Reen</h3>
+          <p class="character-virtue"><span class="lang-es">Sabiduría</span><span class="lang-en">Wisdom</span><span class="lang-fr">Sagesse</span></p>
           <p class="character-phrase">
-            <span class="lang-es">«Las preguntas son más valiosas que las respuestas»</span>
-            <span class="lang-en">"Questions are more valuable than answers"</span>
-            <span class="lang-fr">"Les questions sont plus précieuses que les réponses"</span>
+            <span class="lang-es">«Arriesgaría mi vida por conocer algo nuevo.»</span>
+            <span class="lang-en">"I would risk my life to learn something new."</span>
+            <span class="lang-fr">«Je risquerais ma vie pour apprendre quelque chose de nouveau.»</span>
           </p>
           <p class="character-origin">Aslaf</p>
         </div>
-
+        <div class="character-card character-card--spirit reveal reveal-delay-4">
+          <div class="character-image-wrap">
+            <picture>
+              <source srcset="images/alisa.webp" type="image/webp">
+              <img src="images/alisa.png" alt="Alisa" loading="lazy" width="600" height="800">
+            </picture>
+          </div>
+          <h3 class="character-name">Alisa</h3>
+          <p class="character-virtue"><span class="lang-es">Sabiduría</span><span class="lang-en">Wisdom</span><span class="lang-fr">Sagesse</span></p>
+          <p class="character-phrase">
+            <span class="lang-es">«Eso no significa que no me importe.»</span>
+            <span class="lang-en">"That doesn't mean I don't care."</span>
+            <span class="lang-fr">«Ça ne veut pas dire que ça m'est égal.»</span>
+          </p>
+          <p class="character-origin">Aslaf</p>
+        </div>
         <div class="character-card reveal reveal-delay-4">
           <div class="character-image-wrap">
-            <img src="images/gua.png" alt="Güa" loading="lazy">
+            <picture>
+              <source srcset="images/gua.webp" type="image/webp">
+              <img src="images/gua.png" alt="Güa" loading="lazy" width="600" height="800">
+            </picture>
           </div>
           <h3 class="character-name">Güa</h3>
+          <p class="character-virtue"><span class="lang-es">Paz</span><span class="lang-en">Peace</span><span class="lang-fr">Paix</span></p>
           <p class="character-phrase">
-            <span class="lang-es">«Puedo sentir lo que otros ya no pueden»</span>
-            <span class="lang-en">"I can feel what others no longer can"</span>
-            <span class="lang-fr">"Je peux ressentir ce que les autres ne peuvent plus ressentir"</span>
+            <span class="lang-es">«Escuché tu llamado.»</span>
+            <span class="lang-en">"I heard your call."</span>
+            <span class="lang-fr">«J'ai entendu ton appel.»</span>
           </p>
           <p class="character-origin">Lune</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       LEER: LA PROFECÍA (texto generado desde chapters/chapter_0.tex del libro)
+       ============================================ -->
+  <section class="section reading-section" id="leer">
+    <div class="section-inner reading-inner">
+      <div class="reveal" style="text-align: center;">
+        <span class="section-label">
+          <span class="lang-es">Leer el comienzo</span>
+          <span class="lang-en">Read the opening</span>
+          <span class="lang-fr">Lire le début</span>
+        </span>
+        <h2 class="section-title">
+          <span class="lang-es">La profecía</span>
+          <span class="lang-en">The Prophecy</span>
+          <span class="lang-fr">La Prophétie</span>
+        </h2>
+        <img class="emblem-divider" src="images/emblem.svg" alt="" width="44" height="44">
+      </div>
+
+      <article class="reading-text reveal reveal-delay-1" id="reading-text">
+        <div class="reading-lang lang-es" lang="es">
+          <p>En Elvarya, cuando la nieve borra los senderos y las familias se reúnen cerca del fuego, los mayores cuentan una historia que aprendieron de sus abuelos. Esta historia empieza con una luz sobre una puerta.</p>
+          <p>Hace mucho tiempo, las ciudades mantenían encendidas esas luces para quienes llegaban de noche. Los caminos unían pueblos que hablaban distintas lenguas, y los viajeros llevaban consigo semillas, canciones y maneras de hacer las cosas que nadie había visto del otro lado de las montañas. En aquel mundo vivían cuatro dioses: Amistad, Valentía, Paz y Sabiduría. Su poder acompañaba a quienes tendían una mano, se atrevían a cruzar lo desconocido, aprendían a convivir o buscaban comprender. Allí donde esas fuerzas se encontraban, nacía la Empatía, y con ella los antiguos habían levantado ciudades, trazado caminos y creado maravillas capaces de responder a lo que sentían. También conocían el dolor. Perdían a quienes amaban, discutían, temían cuanto no entendían. Había guerras en sus historias y despedidas en sus canciones. Estos dioses no les habían ahorrado esas penas. Pero al regresar de un camino difícil, todavía podían encontrar un lugar junto al fuego de otro. Entonces llegó el Olvido.</p>
+          <p>Así lo nombra el relato, aquello que se interpuso entre los pueblos, volvió sospechosa la mano ofrecida y enseñó a guardar bajo llave lo que antes se compartía. Los cuatro dioses fueron engañados y su poder se dispersó. La Empatía se perdió en todo el mundo. Para la mayoría, la alegría, el afecto y la confianza se volvieron palabras heredadas de un tiempo que ya no podían sentir. Las voces que antes se buscaban dejaron de responder. Aquel tiempo recibió el nombre de la Caída.</p>
+          <p>Se perdieron ciudades. Los caminos terminaron frente a lugares vacíos. Hubo lámparas que siguieron ardiendo durante años, aunque ya nadie regresara a las casas donde alguien las había habitado.</p>
+          <p>De estos dioses quedan solo sus nombres. De sus obras, ruinas que aún brillaban cuando todo a su alrededor estaba oscuro. Mil años han pasado desde entonces, cuentan junto al fuego.</p>
+          <p>Los pueblos levantaron nuevas casas con las piedras de los antiguos salones. Conservaron herramientas cuyo uso apenas comprendían y oficios que las manos recordaban mejor que las palabras. Tras las murallas crecieron generaciones que nunca habían visto el otro lado. Los caminos abiertos quedaron en poder de quienes podían guardarlos y los libros, de quienes decidían qué merecía saberse. El miedo permaneció. También la tristeza, la ira y el deseo de conservar lo poco que quedaba. Muchos seguían preparando un sitio en la mesa o contando historias a sus hijos, porque así lo habían aprendido. Recordaban los gestos mejor que aquello que antes los había llenado. Se socorría a quien podía devolver el favor, se cumplían promesas por temor a las consecuencias y se permanecía junto a otros para soportar el invierno. El dolor ajeno podía verse y comprenderse sin que algo dentro respondiera a él.</p>
+          <p>La pérdida alcanzó también a las obras antiguas. Jardines que habían florecido al paso de los viajeros se cerraron sobre sus raíces. Las piedras de los caminos dejaron de contestar y hubo luces que ninguna mano consiguió despertar. El mundo conservaba las formas de una vida que se había retirado de ellas.</p>
+          <p>Entre tantas costumbres quedó la de repetir la profecía, incluso en las casas donde nadie sabía ya cómo se sentía la esperanza.</p>
+          <p>Dicen que, cuando los caminos comenzaron a desaparecer, hubo quienes confiaron al porvenir unas palabras. Las llevaron de pueblo en pueblo, y cada generación las entregó a la siguiente, hasta que llegaron a las casas de Elvarya:</p>
+          <blockquote class="prophecy-verse">
+            <p>Por caminos separados llegarán cuatro guardianes, portadores de lo que el mundo creyó perdido.</p>
+            <p>Aprenderán a escuchar lo que las murallas dejaron afuera y a reconocer en el dolor ajeno una voz que merece respuesta.</p>
+            <p>A medida que aprendan a caminar juntos, despertará cuanto quedó en silencio. Volverá a moverse la vida en la piedra y en las raíces, y los pueblos podrán sentir de nuevo aquello cuyos nombres conservaron.</p>
+            <p>Habrá una puerta abierta donde terminaba el camino.</p>
+          </blockquote>
+          <p>Nadie conoce sus rostros. La profecía no dice qué pueblo los verá llegar primero, ni cuánto les costará encontrarse.</p>
+          <p>A veces un niño interrumpe el relato.</p>
+          <p>—¿Y si se pierden también?</p>
+          <p>La abuela mira hacia la ventana. Afuera sigue nevando y el sendero ya no se distingue entre los árboles. Al cabo de un momento se levanta, protege una llama con la mano y enciende la lámpara. Así terminaba el relato su propia abuela. Nunca le explicó por qué había que llevar la luz a la ventana, y ella nunca había preguntado. El niño observa la llama hasta que deja de temblar.</p>
+        </div>
+        <div class="reading-lang lang-en" lang="en">
+          <p>In Elvarya, when the snow erases the paths and families gather close to the fire, the elders tell a story they learned from their grandparents. This story begins with a light above a door.</p>
+          <p>Long ago, cities kept those lights burning for whoever arrived at night. Roads joined peoples who spoke different tongues, and travellers carried with them seeds, songs and ways of doing things that no one had seen on the other side of the mountains. In that world lived four gods: Friendship, Courage, Peace and Wisdom. Their power went with those who held out a hand, who dared to cross into the unknown, who learned to live together or sought to understand. Wherever those forces met, Empathy was born, and with it the ancients had raised cities, traced roads and made wonders that could answer to what they felt. They knew pain, too. They lost the ones they loved, they quarrelled, they feared whatever they did not understand. There were wars in their stories and farewells in their songs. These gods had not spared them those sorrows. But coming home from a hard road, they could still find a place by someone else's fire. Then came the Oblivion.</p>
+          <p>That is what the tale calls it: the thing that came between peoples, made the offered hand suspicious and taught them to lock away what they once shared. The four gods were deceived and their power was scattered. Empathy was lost all over the world. For most, joy, affection and trust became words inherited from a time they could no longer feel. The voices that once sought each other stopped answering. That time was given the name of the Fall.</p>
+          <p>Cities were lost. Roads ended before empty places. Some lamps went on burning for years, though no one came back to the houses where someone had once lived.</p>
+          <p>Of these gods only their names remain. Of their works, ruins that still shone when everything around them was dark. A thousand years have passed since then, they say by the fire.</p>
+          <p>The peoples raised new houses with the stones of the old halls. They kept tools whose use they barely understood and crafts their hands remembered better than their words. Behind the walls grew generations that had never seen the other side. The open roads fell to those who could guard them, and the books to those who decided what deserved to be known. Fear remained. So did sadness, anger and the wish to hold on to the little that was left. Many still set a place at the table or told stories to their children, because that was how they had learned it. They remembered the gestures better than whatever had once filled them. People helped those who could return the favour, kept promises for fear of the consequences and stayed close to others to endure the winter. Someone else's pain could be seen and understood without anything inside answering to it.</p>
+          <p>The loss reached the ancient works as well. Gardens that had bloomed as travellers passed closed over their roots. The stones of the roads stopped answering, and there were lights no hand could wake. The world kept the shapes of a life that had withdrawn from them.</p>
+          <p>Among so many customs, one remained: repeating the prophecy, even in houses where no one knew any longer what hope felt like.</p>
+          <p>They say that, when the roads began to disappear, there were those who entrusted a few words to the future. They carried them from village to village, and each generation handed them to the next, until they reached the houses of Elvarya:</p>
+          <blockquote class="prophecy-verse">
+            <p>By separate roads four guardians will come, bearers of what the world believed lost.</p>
+            <p>They will learn to listen to what the walls left outside, and to recognise in another's pain a voice that deserves an answer.</p>
+            <p>As they learn to walk together, all that fell silent will awaken. Life will move again in stone and in roots, and the peoples will be able to feel once more the things whose names they kept.</p>
+            <p>There will be an open door where the road came to an end.</p>
+          </blockquote>
+          <p>No one knows their faces. The prophecy does not say which people will see them arrive first, nor how much it will cost them to find one another.</p>
+          <p>Sometimes a child interrupts the tale.</p>
+          <p>“And what if they get lost too?”</p>
+          <p>The grandmother looks toward the window. Outside it is still snowing, and the path can no longer be told apart from the trees. After a moment she gets up, shields a flame with her hand and lights the lamp. That was how her own grandmother ended the tale. She never explained why the light had to be carried to the window, and she had never asked. The child watches the flame until it stops trembling.</p>
+        </div>
+        <div class="reading-lang lang-fr" lang="fr">
+          <p>À Elvarya, quand la neige efface les sentiers et que les familles se rassemblent près du feu, les anciens racontent une histoire qu'ils ont apprise de leurs grands-parents. Cette histoire commence par une lumière au-dessus d'une porte.</p>
+          <p>Il y a très longtemps, les villes gardaient ces lumières allumées pour ceux qui arrivaient de nuit. Les chemins reliaient des peuples qui parlaient des langues différentes, et les voyageurs emportaient avec eux des graines, des chansons et des façons de faire que personne n'avait vues de l'autre côté des montagnes. Dans ce monde vivaient quatre dieux : l'Amitié, le Courage, la Paix et la Sagesse. Leur pouvoir accompagnait ceux qui tendaient la main, osaient traverser l'inconnu, apprenaient à vivre ensemble ou cherchaient à comprendre. Là où ces forces se rencontraient naissait l'Empathie, et grâce à elle les anciens avaient bâti des villes, tracé des chemins et créé des merveilles capables de répondre à ce qu'ils ressentaient. Ils connaissaient aussi la douleur. Ils perdaient ceux qu'ils aimaient, se disputaient, craignaient tout ce qu'ils ne comprenaient pas. Il y avait des guerres dans leurs histoires et des adieux dans leurs chansons. Ces dieux ne leur avaient pas épargné ces peines. Mais au retour d'un chemin difficile, ils pouvaient encore trouver une place près du feu d'un autre. Puis vint l'Oubli.</p>
+          <p>C'est ainsi que le récit nomme ce qui s'interposa entre les peuples, rendit suspecte la main tendue et apprit à garder sous clé ce que l'on partageait autrefois. Les quatre dieux furent trompés et leur pouvoir se dispersa. L'Empathie se perdit dans le monde entier. Pour la plupart, la joie, l'affection et la confiance devinrent des mots hérités d'un temps qu'ils ne pouvaient plus ressentir. Les voix qui se cherchaient autrefois cessèrent de répondre. Cette époque reçut le nom de la Chute.</p>
+          <p>Des villes furent perdues. Les chemins s'arrêtèrent devant des lieux vides. Certaines lampes continuèrent de brûler pendant des années, même si plus personne ne revenait dans les maisons où quelqu'un avait vécu.</p>
+          <p>De ces dieux il ne reste que leurs noms. De leurs œuvres, des ruines qui brillaient encore quand tout autour d'elles était sombre. Mille ans ont passé depuis, raconte-t-on près du feu.</p>
+          <p>Les peuples bâtirent de nouvelles maisons avec les pierres des anciennes salles. Ils conservèrent des outils dont ils comprenaient à peine l'usage et des métiers que les mains se rappelaient mieux que les mots. Derrière les murailles grandirent des générations qui n'avaient jamais vu l'autre côté. Les chemins ouverts restèrent aux mains de ceux qui pouvaient les garder, et les livres, à ceux qui décidaient de ce qui méritait d'être su. La peur demeura. La tristesse aussi, la colère et le désir de garder le peu qui restait. Beaucoup continuaient de mettre un couvert de plus ou de raconter des histoires à leurs enfants, parce qu'ils l'avaient appris ainsi. Ils se souvenaient des gestes mieux que de ce qui, autrefois, les remplissait. On secourait qui pouvait rendre la pareille, on tenait ses promesses par peur des conséquences et l'on restait près des autres pour supporter l'hiver. La douleur d'autrui pouvait être vue et comprise sans que rien, à l'intérieur, n'y réponde.</p>
+          <p>La perte atteignit aussi les œuvres anciennes. Des jardins qui fleurissaient au passage des voyageurs se refermèrent sur leurs racines. Les pierres des chemins cessèrent de répondre, et il y eut des lumières qu'aucune main ne parvint à réveiller. Le monde conservait les formes d'une vie qui s'en était retirée.</p>
+          <p>Parmi tant de coutumes demeura celle de répéter la prophétie, même dans les maisons où plus personne ne savait ce que l'on ressent quand on espère.</p>
+          <p>On dit que, lorsque les chemins commencèrent à disparaître, certains confièrent quelques mots à l'avenir. Ils les portèrent de village en village, et chaque génération les transmit à la suivante, jusqu'à ce qu'ils arrivent dans les maisons d'Elvarya :</p>
+          <blockquote class="prophecy-verse">
+            <p>Par des chemins séparés viendront quatre gardiens, porteurs de ce que le monde croyait perdu.</p>
+            <p>Ils apprendront à écouter ce que les murailles ont laissé dehors et à reconnaître dans la douleur d'autrui une voix qui mérite une réponse.</p>
+            <p>À mesure qu'ils apprendront à marcher ensemble, tout ce qui s'est tu s'éveillera. La vie remuera de nouveau dans la pierre et dans les racines, et les peuples pourront ressentir encore ce dont ils ont gardé les noms.</p>
+            <p>Il y aura une porte ouverte là où finissait le chemin.</p>
+          </blockquote>
+          <p>Personne ne connaît leurs visages. La prophétie ne dit pas quel peuple les verra arriver en premier, ni combien il leur en coûtera de se trouver.</p>
+          <p>Parfois, un enfant interrompt le récit.</p>
+          <p>— Et s'ils se perdent eux aussi ?</p>
+          <p>La grand-mère regarde vers la fenêtre. Dehors il neige toujours, et le sentier ne se distingue plus entre les arbres. Au bout d'un moment, elle se lève, protège une flamme de sa main et allume la lampe. C'est ainsi que sa propre grand-mère terminait le récit. Elle ne lui avait jamais expliqué pourquoi il fallait porter la lumière à la fenêtre, et elle n'avait jamais demandé. L'enfant regarde la flamme jusqu'à ce qu'elle cesse de trembler.</p>
+        </div>
+      </article>
+      <div class="reading-fade" id="reading-fade"></div>
+      <div class="reading-actions">
+        <button class="hero-cta" id="reading-toggle" aria-expanded="false" aria-controls="reading-text">
+          <span class="lang-es">Seguir leyendo</span>
+          <span class="lang-en">Keep reading</span>
+          <span class="lang-fr">Continuer la lecture</span>
+        </button>
       </div>
     </div>
   </section>
@@ -576,35 +710,26 @@
       </div>
 
       <p class="book-quote reveal reveal-delay-1">
-        <span class="lang-es">«Una simple historia de fantasía que habla de los sentimientos humanos»</span>
-        <span class="lang-en">"A simple fantasy story that speaks of human feelings"</span>
-        <span class="lang-fr">«Une simple histoire de fantasy qui parle des sentiments humains»</span>
+        <span class="lang-es">Un mundo de fantasía sobre las emociones que olvidamos sentir</span>
+        <span class="lang-en">A fantasy world about the emotions we forgot how to feel</span>
+        <span class="lang-fr">Un monde de fantasy sur les émotions que nous avons oublié de ressentir</span>
       </p>
 
       <ul class="chapters-list reveal reveal-delay-2">
-        <li><span class="chapter-name"><span class="lang-es">La Profecía</span><span class="lang-en">The
-              Prophecy</span><span class="lang-fr">La Prophétie</span></span></li>
-        <li><span class="chapter-name"><span class="lang-es">Soledad</span><span class="lang-en">Loneliness</span><span
-              class="lang-fr">Solitude</span></span></li>
-        <li><span class="chapter-name"><span class="lang-es">Ignorancia</span><span
-              class="lang-en">Ignorance</span><span class="lang-fr">Ignorance</span></span></li>
-        <li><span class="chapter-name"><span class="lang-es">Descaro</span><span class="lang-en">Audacity</span><span
-              class="lang-fr">Audace</span></span>
-        </li>
-        <li><span class="chapter-name"><span class="lang-es">Primalidad</span><span
-              class="lang-en">Primality</span><span class="lang-fr">Animalité</span></span></li>
-        <li><span class="chapter-name"><span class="lang-es">Remordimiento</span><span
-              class="lang-en">Remorse</span><span class="lang-fr">Remords</span></span></li>
-        <li><span class="chapter-name"><span class="lang-es">Trotamundos</span><span
-              class="lang-en">Wanderer</span><span class="lang-fr">Vagabond</span></span></li>
-        <li><span class="chapter-name"><span class="lang-es">Arrogancia</span><span
-              class="lang-en">Arrogance</span><span class="lang-fr">Arrogance</span></span></li>
-        <li><span class="chapter-name"><span class="lang-es">Fractura</span><span class="lang-en">Fracture</span><span
-              class="lang-fr">Fracture</span></span>
-        </li>
-        <li><span class="chapter-name"><span class="lang-es">Cicatriz</span><span class="lang-en">Scar</span><span
-              class="lang-fr">Cicatrice</span></span>
-        </li>
+        <li><span class="chapter-name"><span class="lang-es">La profecía</span><span class="lang-en">The Prophecy</span><span class="lang-fr">La Prophétie</span></span></li>
+        <li><span class="chapter-name"><span class="lang-es">Soledad</span><span class="lang-en">Loneliness</span><span class="lang-fr">Solitude</span></span></li>
+        <li><span class="chapter-name"><span class="lang-es">Ignorancia</span><span class="lang-en">Ignorance</span><span class="lang-fr">Ignorance</span></span></li>
+        <li><span class="chapter-name"><span class="lang-es">Descaro</span><span class="lang-en">Audacity</span><span class="lang-fr">Audace</span></span></li>
+        <li><span class="chapter-name"><span class="lang-es">Primalidad</span><span class="lang-en">Primality</span><span class="lang-fr">Animalité</span></span></li>
+        <li><span class="chapter-name"><span class="lang-es">Remordimiento</span><span class="lang-en">Remorse</span><span class="lang-fr">Remords</span></span></li>
+        <li><span class="chapter-name"><span class="lang-es">Trotamundos</span><span class="lang-en">Wanderer</span><span class="lang-fr">Vagabond</span></span></li>
+        <li><span class="chapter-name"><span class="lang-es">Arrogancia</span><span class="lang-en">Arrogance</span><span class="lang-fr">Arrogance</span></span></li>
+        <li><span class="chapter-name"><span class="lang-es">Fractura</span><span class="lang-en">Fracture</span><span class="lang-fr">Fracture</span></span></li>
+        <li><span class="chapter-name"><span class="lang-es">Madurez</span><span class="lang-en">Maturity</span><span class="lang-fr">Maturité</span></span></li>
+        <li><span class="chapter-name"><span class="lang-es">Deuda</span><span class="lang-en">Debt</span><span class="lang-fr">Dette</span></span></li>
+        <li><span class="chapter-name"><span class="lang-es">Cicatriz</span><span class="lang-en">Scar</span><span class="lang-fr">Cicatrice</span></span></li>
+        <li><span class="chapter-name"><span class="lang-es">Paciencia</span><span class="lang-en">Patience</span><span class="lang-fr">Patience</span></span></li>
+        <li class="chapter-more"><span class="chapter-name"><span class="lang-es">y los que faltan escribirse…</span><span class="lang-en">and those still being written…</span><span class="lang-fr">et ceux qui restent à écrire…</span></span></li>
       </ul>
 
       <div class="book-info reveal reveal-delay-3">
@@ -619,9 +744,9 @@
         <div class="book-stat">
           <div class="book-stat-value">4</div>
           <div class="book-stat-label">
-            <span class="lang-es">Protagonistas</span>
-            <span class="lang-en">Protagonists</span>
-            <span class="lang-fr">Protagonistes</span>
+            <span class="lang-es">Guardianes</span>
+            <span class="lang-en">Guardians</span>
+            <span class="lang-fr">Gardiens</span>
           </div>
         </div>
         <div class="book-stat">
@@ -633,11 +758,11 @@
           </div>
         </div>
         <div class="book-stat">
-          <div class="book-stat-value">∞</div>
+          <div class="book-stat-value">10+</div>
           <div class="book-stat-label">
-            <span class="lang-es">Emociones</span>
-            <span class="lang-en">Emotions</span>
-            <span class="lang-fr">Émotions</span>
+            <span class="lang-es">Edad de lectura</span>
+            <span class="lang-en">Reading age</span>
+            <span class="lang-fr">Âge de lecture</span>
           </div>
         </div>
       </div>
@@ -710,23 +835,26 @@
             </p>
 
             <p class="lang-es">
-              El mundo de Emotia es un regalo para mis amadas sobrinas (Amara y Guadalupe) de 6 años,
-              por lo que Emotia está pensado para todo tipo de público.
-              Desde niños, jóvenes y adultos por igual, porque incluso siendo adultos, aún tenemos mucho que aprender.
+              El mundo de Emotia es un regalo para mis amadas sobrinas, Amara y Guadalupe. Hoy tienen 6 años;
+              el libro las va a estar esperando para cuando puedan leerlo solas.
+              Está pensado para leer desde los 10 años y para adultos por igual, porque incluso siendo adultos,
+              aún tenemos mucho que aprender.
               Y porque las emociones, por sobre todo, son humanas. Mi esperanza es que esta historia ayude a quien la
               lea a comprender un poco mejor lo que siente — y lo que sienten los demás.
             </p>
             <p class="lang-en">
-              The world of Emotia is a gift for my beloved nieces (Amara and Guadalupe) aged 6,
-              so Emotia is intended for all audiences: children, young adults, and adults alike,
-              because even as adults, we still have much to learn.
+              The world of Emotia is a gift for my beloved nieces, Amara and Guadalupe. They are 6 today;
+              the book will be waiting for them when they can read it on their own.
+              It is meant for readers aged 10 and up and for adults alike, because even as adults,
+              we still have much to learn.
               And because emotions, above all, are human. My hope is that this story will help whoever reads it
               to understand a little better what they feel — and what others feel.
             </p>
             <p class="lang-fr">
-              Le monde d'Emotia est un cadeau pour mes nièces (Amara et Guadalupe), âgées de 6 ans.
-              C'est pourquoi Emotia s'adresse à tous les publics, des enfants aux adolescents
-              et aux adultes, car même en tant qu'adultes, nous avons encore beaucoup à apprendre.
+              Le monde d'Emotia est un cadeau pour mes nièces bien-aimées, Amara et Guadalupe. Elles ont 6 ans
+              aujourd'hui ; le livre les attendra pour le jour où elles pourront le lire seules.
+              Il s'adresse aux lecteurs dès 10 ans comme aux adultes, car même en tant qu'adultes,
+              nous avons encore beaucoup à apprendre.
               Et parce que les émotions, avant tout, sont humaines. Mon espoir est que cette histoire aide celui ou
               celle qui la lit à comprendre un peu mieux ce qu'il ressent — et ce que ressentent les autres.
             </p>
@@ -761,13 +889,21 @@
       </div>
 
       <div class="reveal reveal-delay-1">
+        <!-- Pegar la URL de la campaña en href. Mientras esté vacío, el botón se muestra como «Muy pronto». -->
         <a href="" class="cta-btn" id="kickstarter-btn" data-analytics-event="kickstarter_click"
-          data-analytics-label="final-section" target="_blank">
-          <span class="lang-es">Apoyanos en Kickstarter</span>
-          <span class="lang-en">Support us on Kickstarter</span>
-          <span class="lang-fr">Soutenez-nous sur Kickstarter</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2">
+          data-analytics-label="final-section" target="_blank" rel="noopener">
+          <span class="label-live">
+            <span class="lang-es">Apoyanos en Kickstarter</span>
+            <span class="lang-en">Support us on Kickstarter</span>
+            <span class="lang-fr">Soutenez-nous sur Kickstarter</span>
+          </span>
+          <span class="label-soon">
+            <span class="lang-es">Muy pronto en Kickstarter</span>
+            <span class="lang-en">Coming soon to Kickstarter</span>
+            <span class="lang-fr">Bientôt sur Kickstarter</span>
+          </span>
+          <svg class="label-live" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
             <polyline points="15 3 21 3 21 9" />
             <line x1="10" y1="14" x2="21" y2="3" />
@@ -791,6 +927,7 @@
        FOOTER
        ============================================ -->
   <footer class="footer">
+    <img class="footer-emblem" src="images/emblem.svg" alt="" width="36" height="36">
     <div class="footer-brand">EMOTIA</div>
     <p class="footer-tagline">
       <span class="lang-es">Escrito con empatía</span>
@@ -798,7 +935,7 @@
       <span class="lang-fr">Écrit avec empathie</span>
     </p>
     <div class="footer-links">
-      <a href="#">Instagram</a>
+      <!-- <a href="URL-DE-INSTAGRAM" target="_blank" rel="noopener">Instagram</a> -->
       <a href="https://github.com/FedeLoch/Emotia" target="_blank" rel="noopener">GitHub</a>
     </div>
     <p class="footer-copy">&copy; 2026 Federico Lochbaum. <span class="lang-es">Todos los derechos

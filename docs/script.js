@@ -9,29 +9,70 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
   initHeroLetters();
   initLanguageToggle();
+  initKickstarter();
+  initReading();
 });
 
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 /* --- Language Toggle --- */
+// Remembers the reader's choice; on a first visit, follows the browser language.
 function initLanguageToggle() {
   const btn = document.getElementById('lang-toggle');
-  if (!btn) return;
-
   const langs = ['es', 'en', 'fr'];
 
+  function setLang(lang) {
+    document.body.classList.remove('lang-es', 'lang-en', 'lang-fr');
+    document.body.classList.add(`lang-${lang}`);
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('emotia-lang', lang); } catch (e) { /* storage unavailable */ }
+  }
+
+  let saved = null;
+  try { saved = localStorage.getItem('emotia-lang'); } catch (e) { /* storage unavailable */ }
+  const browser = (navigator.language || 'es').slice(0, 2).toLowerCase();
+  const initial = langs.includes(saved) ? saved : (langs.includes(browser) ? browser : 'es');
+  if (initial !== 'es') setLang(initial);
+
+  if (!btn) return;
   btn.addEventListener('click', () => {
     const current = langs.find(l => document.body.classList.contains(`lang-${l}`)) || 'es';
-    const next = langs[(langs.indexOf(current) + 1) % langs.length];
+    setLang(langs[(langs.indexOf(current) + 1) % langs.length]);
+  });
+}
 
-    document.body.classList.remove('lang-es', 'lang-en', 'lang-fr');
-    document.body.classList.add(`lang-${next}`);
-    document.documentElement.lang = next;
+/* --- Kickstarter button --- */
+// While the campaign URL is empty, show "coming soon" instead of a dead link.
+function initKickstarter() {
+  const btn = document.getElementById('kickstarter-btn');
+  if (!btn) return;
+  const url = (btn.getAttribute('href') || '').trim();
+  if (url && url !== '#') return;
+  btn.removeAttribute('href');
+  btn.removeAttribute('target');
+  btn.classList.add('is-soon');
+  btn.setAttribute('aria-disabled', 'true');
+}
+
+/* --- Reading: La profecía --- */
+function initReading() {
+  const text = document.getElementById('reading-text');
+  const btn = document.getElementById('reading-toggle');
+  const fade = document.getElementById('reading-fade');
+  if (!text || !btn) return;
+  btn.addEventListener('click', () => {
+    text.classList.add('open');
+    if (fade) fade.classList.add('hidden');
+    btn.setAttribute('aria-expanded', 'true');
+    btn.parentElement.style.display = 'none';
+    if (typeof gtag === 'function') gtag('event', 'read-prophecy_expand', { page_location: window.location.href });
   });
 }
 
 /* --- Particles System --- */
 function initParticles() {
   const canvas = document.getElementById('particles-canvas');
-  if (!canvas) return;
+  if (!canvas || prefersReducedMotion) return;
   
   const ctx = canvas.getContext('2d');
   let particles = [];
@@ -61,11 +102,14 @@ function initParticles() {
       this.pulse = Math.random() * Math.PI * 2;
       this.pulseSpeed = Math.random() * 0.02 + 0.005;
       
+      // Gold flame plus the four threads of the book's emblem
       const colors = [
-        { r: 201, g: 168, b: 76 },  // gold
-        { r: 74, g: 158, b: 255 },  // blue
-        { r: 123, g: 94, b: 167 },  // purple
-        { r: 232, g: 232, b: 226 }, // white
+        { r: 201, g: 168, b: 76 },  // gold (the lamp)
+        { r: 201, g: 168, b: 76 },
+        { r: 86, g: 146, b: 224 },  // blue thread
+        { r: 206, g: 74, b: 70 },   // red thread
+        { r: 92, g: 176, b: 120 },  // green thread
+        { r: 236, g: 234, b: 226 }, // white thread
       ];
       this.color = colors[Math.floor(Math.random() * colors.length)];
     }
@@ -217,8 +261,8 @@ function initHeroLetters() {
     const span = document.createElement('span');
     span.className = 'letter';
     span.textContent = char === ' ' ? '\u00A0' : char;
-    span.style.animationDelay = `${0.8 + i * 0.1}s`;
-    span.style.animation = `fadeInUp 0.6s ease ${0.8 + i * 0.1}s forwards`;
+    const delay = prefersReducedMotion ? 0 : 0.25 + i * 0.06;
+    span.style.animation = `fadeInUp 0.6s ease ${delay}s forwards`;
     title.appendChild(span);
   });
 }
